@@ -1,11 +1,11 @@
 # Orangutan Room
 
 ## Overview
-An immersive VR safe space for users to speak freely to a massive, disinterested orangutan eating a banana. The orangutan displays randomized idle behaviors (banana eating, scratching, chewing, farting) while ignoring user input. Sessions record user audio for later review.
+An immersive VR safe space for users to speak freely to a massive, disinterested orangutan eating a banana. The orangutan displays randomized idle behaviors (banana eating, scratching, chewing, farting, yawning, shifting) while ignoring user input. Sessions record user audio for later review.
 
 ## Features
 - VR scene: simple room environment with ambient jungle sounds  
-- Animated orangutan: rigged model with idle animations and synced audio  
+- Animated orangutan: rigged model with idle animations (now including yawning and shifting) and synced audio  
 - Voice capture: record user microphone input without analysis  
 - Behavior scheduler: random idle actions on fixed intervals or voice-triggered timers  
 - Session management: start/end controls, configurable session length  
@@ -56,6 +56,8 @@ git clone https://github.com/GrahamPaasch/orangutan_room.git
   /Audio
     FartSound.wav
     JungleAmbience.wav
+    Yawn.wav
+    Shift.wav
 README.md
 AGENTS.md
 ```
@@ -70,7 +72,7 @@ AGENTS.md
 
 ## Roadmap
 
-* Add additional idle animations (yawning, shifting)
+* Add additional idle animations (yawning, shifting) - done
 * Implement adjustable timers via UI
 * Integrate spatial audio for orangutan sounds
 * Export session metrics (duration, audio length)

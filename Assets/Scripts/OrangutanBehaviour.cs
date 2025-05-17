@@ -6,6 +6,12 @@ public class OrangutanBehaviour : MonoBehaviour
     private AudioClip[] idleSounds;
 
     [SerializeField]
+    private AudioClip yawnClip;
+
+    [SerializeField]
+    private AudioClip shiftClip;
+
+    [SerializeField]
     private Animator animator;
 
     private AudioSource audioSource;
@@ -38,13 +44,38 @@ public class OrangutanBehaviour : MonoBehaviour
 
     private void PlayRandomIdle()
     {
-        if (idleSounds.Length == 0 || animator == null)
+        if (animator == null)
         {
             return;
         }
 
-        int index = Random.Range(0, idleSounds.Length);
-        audioSource.PlayOneShot(idleSounds[index]);
-        animator.SetTrigger("Idle" + index);
+        int index = Random.Range(0, idleSounds.Length + 2);
+        switch (index)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                if (index < idleSounds.Length)
+                {
+                    audioSource.PlayOneShot(idleSounds[index]);
+                }
+                animator.SetTrigger("Idle" + index);
+                break;
+            case 4:
+                if (yawnClip != null)
+                {
+                    audioSource.PlayOneShot(yawnClip);
+                }
+                animator.SetTrigger("Yawn");
+                break;
+            default:
+                if (shiftClip != null)
+                {
+                    audioSource.PlayOneShot(shiftClip);
+                }
+                animator.SetTrigger("Shift");
+                break;
+        }
     }
 }
