@@ -9,11 +9,13 @@ public class SessionRecorder : MonoBehaviour
 
     private AudioClip recording;
     private string filePath;
+    private float startTime;
 
     public void StartRecording()
     {
         recording = Microphone.Start(null, false, 300, sampleRate);
         filePath = Path.Combine(Application.persistentDataPath, GetTimestamp() + ".wav");
+        startTime = Time.time;
     }
 
     public void StopRecording()
@@ -24,7 +26,9 @@ public class SessionRecorder : MonoBehaviour
         }
 
         Microphone.End(null);
+        float duration = Time.time - startTime;
         SaveRecording();
+        SaveMetrics(duration, recording.length);
     }
 
     private void SaveRecording()
@@ -34,6 +38,17 @@ public class SessionRecorder : MonoBehaviour
         recording.GetData(data, 0);
         var bytes = ConvertToWav(data, recording.channels, recording.frequency);
         File.WriteAllBytes(filePath, bytes);
+    }
+
+    private void SaveMetrics(float duration, float audioLength)
+    {
+        var metrics = new SessionMetrics
+        {
+            Duration = duration,
+            AudioLength = audioLength
+        };
+        var json = JsonUtility.ToJson(metrics, true);
+        File.WriteAllText(Path.ChangeExtension(filePath, ".json"), json);
     }
 
     private static string GetTimestamp()
@@ -70,5 +85,12 @@ public class SessionRecorder : MonoBehaviour
             }
         }
         return stream.ToArray();
+    }
+
+    [Serializable]
+    private class SessionMetrics
+    {
+        public float Duration;
+        public float AudioLength;
     }
 }
