@@ -16,11 +16,18 @@ public class OrangutanBehaviour : MonoBehaviour
 
     private AudioSource audioSource;
     private float nextActionTime;
-    private const float ActionInterval = 5f;
+
+    [SerializeField]
+    public float ActionInterval = 5f;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.spatialBlend = 1f;
+            audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+        }
     }
 
     private void Start()

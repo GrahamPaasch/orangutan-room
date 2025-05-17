@@ -22,7 +22,7 @@ An immersive VR safe space for users to speak freely to a massive, disinterested
 1. Clone repository:  
 ```bash
 git clone https://github.com/GrahamPaasch/orangutan_room.git
-````
+```
 
 2. Open project in Unity Editor.
 3. Install required packages via Package Manager: XR Plugin Management, Input System.
