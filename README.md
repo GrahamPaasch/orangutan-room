@@ -36,11 +36,11 @@ git clone https://github.com/GrahamPaasch/orangutan_room.git
 
 ## Usage
 
-1. Load SampleScene in Unity.
-2. Attach OrangutanBehaviour to orangutan GameObject.
+1. Load **SampleScene** in Unity.
+2. Drag **OrangutanBehaviour** and **SessionRecorder** onto the orangutan GameObject.
 3. Enter Play Mode or build to headset (File > Build Settings).
-4. Use UI menu to start and stop sessions.
-5. Retrieve recorded audio files from Application.persistentDataPath.
+4. Use UI controls to start and stop sessions.
+5. Retrieve recorded audio files from `Application.persistentDataPath`.
 
 ## Project Structure
 
