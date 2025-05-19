@@ -38,9 +38,10 @@ git clone https://github.com/GrahamPaasch/orangutan_room.git
 
 1. Load **SampleScene** in Unity.
 2. Drag **OrangutanBehaviour**, **SessionRecorder**, and **SessionController** onto the orangutan GameObject.
-3. Enter Play Mode or build to headset (File > Build Settings).
-4. Use UI controls to start and stop sessions.
-5. Retrieve recorded audio files from `Application.persistentDataPath`.
+3. Attach **OrangutanRoomInitializer** to an empty GameObject and assign the orangutan prefab and player rig.
+4. Enter Play Mode or build to headset (File > Build Settings).
+5. Use UI controls to start and stop sessions.
+6. Retrieve recorded audio files from `Application.persistentDataPath`.
 
 ## Deployment (Oculus Quest 1)
 
@@ -63,6 +64,7 @@ git clone https://github.com/GrahamPaasch/orangutan_room.git
     OrangutanBehaviour.cs
     SessionRecorder.cs
     SessionController.cs
+    OrangutanRoomInitializer.cs
   /Models
     Orangutan.fbx
   /Audio
