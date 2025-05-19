@@ -37,7 +37,7 @@ git clone https://github.com/GrahamPaasch/orangutan_room.git
 ## Usage
 
 1. Load **SampleScene** in Unity.
-2. Drag **OrangutanBehaviour** and **SessionRecorder** onto the orangutan GameObject.
+2. Drag **OrangutanBehaviour**, **SessionRecorder**, and **SessionController** onto the orangutan GameObject.
 3. Enter Play Mode or build to headset (File > Build Settings).
 4. Use UI controls to start and stop sessions.
 5. Retrieve recorded audio files from `Application.persistentDataPath`.
@@ -49,8 +49,10 @@ git clone https://github.com/GrahamPaasch/orangutan_room.git
   /Scenes
     SampleScene.unity
   /Scripts
+    ActionIntervalSlider.cs
     OrangutanBehaviour.cs
     SessionRecorder.cs
+    SessionController.cs
   /Models
     Orangutan.fbx
   /Audio
@@ -73,6 +75,6 @@ AGENTS.md
 ## Roadmap
 
 * Add additional idle animations (yawning, shifting) - done
-* Implement adjustable timers via UI
+* Implement adjustable timers via UI - done
 * Integrate spatial audio for orangutan sounds
 * Export session metrics (duration, audio length)
