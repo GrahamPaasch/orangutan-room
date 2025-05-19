@@ -42,6 +42,16 @@ git clone https://github.com/GrahamPaasch/orangutan_room.git
 4. Use UI controls to start and stop sessions.
 5. Retrieve recorded audio files from `Application.persistentDataPath`.
 
+## Deployment (Oculus Quest 1)
+
+1. Install **Android Build Support** in Unity Hub.
+2. Put your Quest 1 into **Developer Mode** and connect it via USB.
+3. Open **File > Build Settings** and switch the platform to **Android**.
+4. Under **Project Settings > XR Plugin Management**, enable **Oculus** (or OpenXR).
+5. Click **Build** to generate an APK file.
+6. Use `adb install <APK>` or Oculus Developer Hub to sideload the build.
+7. Launch the app on the headset and confirm it runs without console errors.
+
 ## Project Structure
 
 ```
